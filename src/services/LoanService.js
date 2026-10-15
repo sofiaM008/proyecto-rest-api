@@ -29,18 +29,17 @@ const crearPrestamo = async (datos) => {
     RETURNING *
     `,
     [
-      datos.aula,
-      datos.numeroPC,
-      datos.mouse,
-      datos.teclados,
-      datos.teclados,
-      datos.cargador,
-      datos.numeroTVs,
-      datos.controlTV,
-      datos.instructorRecibe,
-      datos.telefono,
-      datos.nombreGuardaEntrega
-    ]
+  datos.aula,
+  datos.numeroPC,
+  datos.mouse,
+  datos.teclados,
+  datos.cargador,
+  datos.numeroTVs,
+  datos.controlTV,
+  datos.instructorRecibe,
+  datos.telefono,
+  datos.nombreGuardaEntrega
+]
   );
 
   return resultado.rows[0];
@@ -94,9 +93,9 @@ const obtenerHistorial = async (filtros) => {
 module.exports = {
   obtenerPrestamos,
   crearPrestamo,
-  aceptarPrestamo
-};  
-
+  aceptarPrestamo,
+  obtenerHistorial
+};
 
 
 
