@@ -63,8 +63,33 @@ const aceptarPrestamo = async (req, res) => {
   }
 };
 
+
+  
+const obtenerHistorial = async (req, res) => {
+  try {
+    console.log('Filtros recibidos:', req.query);
+
+    const historial = await loanService.obtenerHistorial(req.query);
+
+    res.status(200).json({
+      status: 'success',
+      data: historial
+    });
+  } catch (error) {
+    console.error('ERROR EN HISTORIAL:', error.message);
+
+    res.status(500).json({
+      status: 'error',
+      message: error.message
+    });
+  }
+};
+
+
+
 module.exports = {
   obtenerPrestamos,
   crearPrestamo,
-  aceptarPrestamo
+  aceptarPrestamo,
+  obtenerHistorial
 };
