@@ -1,19 +1,12 @@
-
 import { Router } from 'express';
-import {
-  obtenerPrestamos,
-  crearPrestamo,
-  aceptarPrestamo,
-  obtenerHistorial
-} from '../controllers/loan.controller';
+import { LoanController } from '../controllers/loan.controller';
 import { validateLoanPayload } from '../middlewares/validateLoan.middleware';
 
 const router = Router();
 
-router.get('/history', obtenerHistorial);
-router.get('/search', obtenerHistorial);
-router.get('/', obtenerPrestamos);
-router.post('/', validateLoanPayload, crearPrestamo);
-router.put('/:id/accept', aceptarPrestamo);
+router.get('/search', LoanController.getLoansByFilter);
+router.post('/', validateLoanPayload, LoanController.createLoan);
+router.put('/:id/accept', LoanController.acceptLoanInventory);
+router.get('/:id', LoanController.getLoanById);
 
 export default router;
