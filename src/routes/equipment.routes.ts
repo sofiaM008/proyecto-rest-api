@@ -9,7 +9,7 @@ import {
 const router = Router();
 
 router.get('/', obtenerEquipos);
-router.post('/', crearEquipo);
+router.post('/', validateLoanPayload, crearEquipo);
 router.patch('/:id', actualizarEquipo);
 
 export default router;
