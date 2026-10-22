@@ -1,15 +1,11 @@
-
 import { Router } from 'express';
-import {
-  obtenerAmbientes,
-  crearAmbiente,
-  actualizarAmbiente
-} from '../controllers/environment.controller';
+import { EnvironmentController } from '../controllers/environment.controller';
+import { validateEnvironmentPayload } from '../middlewares/validateEnvironment.middleware';
 
 const router = Router();
 
-router.get('/', obtenerAmbientes);
-router.post('/', crearAmbiente);
-router.patch('/:id', actualizarAmbiente);
+router.get('/', EnvironmentController.getEnvironments);
+router.post('/', validateEnvironmentPayload, EnvironmentController.createEnvironment);
+router.patch('/:id', EnvironmentController.updateEnvironment);
 
 export default router;
