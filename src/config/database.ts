@@ -1,9 +1,4 @@
-
-import 'dotenv/config';
 import { Pool } from 'pg';
-
-console.log('¿Se cargó DB_USER?:', Boolean(process.env.DB_USER));
-console.log('¿Se cargó DB_PASSWORD?:', Boolean(process.env.DB_PASSWORD));
 
 const pool = new Pool({
   host: process.env.DB_HOST,

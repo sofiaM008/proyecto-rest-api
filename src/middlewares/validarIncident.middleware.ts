@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { ICreateIncidentDTO } from '../dtos/incident.dto';
+import { ICreateIncidentDTO } from '../dtos/incidente.dto';
 
 const isCreateIncidentDTO = (value: unknown): value is ICreateIncidentDTO => {
   if (typeof value !== 'object' || value === null || Array.isArray(value)) {
@@ -34,3 +34,4 @@ export const validateIncidentPayload = (
 
   next();
 };
+

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { ICreateEnvironmentDTO } from '../dtos/environment.dto';
+import { ICreateEnvironmentDTO } from '../dtos/entorno.dto';
 
 const isCreateEnvironmentDTO = (value: unknown): value is ICreateEnvironmentDTO => {
   if (typeof value !== 'object' || value === null || Array.isArray(value)) {
@@ -34,3 +34,4 @@ export const validateEnvironmentPayload = (
 
   next();
 };
+

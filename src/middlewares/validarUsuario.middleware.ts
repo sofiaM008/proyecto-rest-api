@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { ICreateUserDTO } from '../dtos/user.dto';
+import { ICreateUserDTO } from '../dtos/usuario.dto';
 
 const isCreateUserDTO = (value: unknown): value is ICreateUserDTO => {
   if (typeof value !== 'object' || value === null || Array.isArray(value)) {
@@ -36,3 +36,4 @@ export const validateUserPayload = (
 
   next();
 };
+

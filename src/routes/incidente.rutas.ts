@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { IncidentController } from '../controllers/incident.controller';
-import { validateIncidentPayload } from '../middlewares/validateIncident.middleware';
+import { IncidentController } from '../controllers/controlador.de.incidente';
+import { validateIncidentPayload } from '../middlewares/validarIncident.middleware';
 
 const router = Router();
 
@@ -9,3 +9,4 @@ router.get('/', IncidentController.getIncidents);
 router.patch('/:id', IncidentController.updateIncident);
 
 export default router;
+

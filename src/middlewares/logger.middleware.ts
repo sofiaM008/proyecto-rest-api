@@ -1,11 +1,5 @@
-import { Request, Response, NextFunction } from 'express';
-
-export const requestLogger = (
-  req: Request,
-  res: Response,
-  next: NextFunction
-): void => {
-  const timestamp = new Date().toISOString();
-  console.log(`[AUDIT SENA] [${timestamp}] ${req.method} ${req.originalUrl}`);
+import { RequestHandler } from 'express';
+export const logger: RequestHandler = (req, res, next) => {
+  res.on('finish', () => console.log(req.method, req.originalUrl, res.statusCode));
   next();
 };

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { ICreateEquipmentDTO } from '../dtos/equipment.dto';
+import { ICreateEquipmentDTO } from '../dtos/equipo.dto';
 
 const isCreateEquipmentDTO = (value: unknown): value is ICreateEquipmentDTO => {
   if (typeof value !== 'object' || value === null || Array.isArray(value)) {
@@ -34,3 +34,4 @@ export const validateEquipmentPayload = (
 
   next();
 };
+
